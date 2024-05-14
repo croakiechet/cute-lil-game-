@@ -1,7 +1,7 @@
 import pygame
 from catframe import CatFrame
-from leftbutton import LeftButton
-from rightbutton import RightButton
+from button import Button
+from textmake import TextMake
 import headsheet
 
 # Initialize pygame
@@ -28,20 +28,6 @@ def center(size_screen, w, h):
     x_centered = (size_screen[0]) / 2 - w / 2
     y_centered = (size_screen[1]) / 2 - h / 2
     return x_centered, y_centered
-
-
-# Makes text easier to move based on it's size
-class TextMake:
-    def __init__(self, font, text, color):
-        self.text = text
-        self.font = font
-        self.color = color
-        self.text_sprite = self.font.render(self.text, True, self.color)
-        self.dimensions = self.font.size(text)
-
-    def get_text_size(self):
-        return self.dimensions[0], self.dimensions[1]
-
 
 # Headsheet Cats
 ChoseCharacter = False
@@ -85,43 +71,39 @@ white_3 = head_sheet.get_image(23, 256, 256, 0.25)
 choose_cat_list = [black_1, blacktabby_1, calico_1, grey_1, greytabby_1, orange_1, orangetabby_1, white_1]
 
 # Cat Frame
-catframe = CatFrame(0.75)
-catframe_size = catframe.get_img_size()
-starting_frame_x = (center(screen_size, catframe_size[0], catframe_size[1])[0])
-starting_frame_y = (center(screen_size, catframe_size[0], catframe_size[1])[1] + 50)
+catframe = CatFrame(0.75, screen_size)
+catframe_pos = (catframe.set_position()[0], catframe.set_position()[1] + 50)
 
 # Title
-CYC_Title = TextMake(main_font, "choose your character", (54, 44, 35))
-CYC_Title_Size = CYC_Title.get_text_size()
-print(CYC_Title_Size)
-title_x = (center(screen_size, CYC_Title_Size[0], CYC_Title_Size[1])[0])
-title_y = (center(screen_size, CYC_Title_Size[0], CYC_Title_Size[1])[1] - 218)
+cyc = TextMake(main_font, "choose your character", (54, 44, 35), screen_size)
+cyc_pos = (cyc.set_position()[0], cyc.set_position()[1] - 218)
 
 # Buttons
-left_button = LeftButton(0.65)
-left_button_size = left_button.get_img_size()
-left_button_x = (center(screen_size, left_button_size[0], left_button_size[1])[0] - 300)
-left_button_y = (center(screen_size, left_button_size[0], left_button_size[1])[1] + 40)
-right_button = RightButton(0.65)
-right_button_size = right_button.get_img_size()
-right_button_x = (center(screen_size, left_button_size[0], left_button_size[1])[0] + 300)
-right_button_y = (center(screen_size, left_button_size[0], left_button_size[1])[1] + 40)
+left_button = Button('sprites/Left.png', 0.65, screen_size)
+right_button = Button('sprites/Right.png', 0.65, screen_size)
+left_button_pos = (left_button.set_position()[0] - 300, left_button.set_position()[1] + 40)
+right_button_pos = (right_button.set_position()[0] + 300, right_button.set_position()[1] + 40)
 
 # Game Loop
 run = True
 while run:
     screen.fill((255, 255, 255))
-    screen.blit(CYC_Title.text_sprite, (title_x, title_y))
+    screen.blit(cyc.text_sprite, cyc_pos)
 
     if ChoseCharacter is False:
-        screen.blit(catframe.image, (starting_frame_x, starting_frame_y))
+        screen.blit(catframe.image, catframe_pos)
 
-    screen.blit(left_button.image, (left_button_x, left_button_y))
-    screen.blit(right_button.image, (right_button_x, right_button_y))
+    screen.blit(left_button.image, left_button_pos)
+    screen.blit(right_button.image, right_button_pos)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
+
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            print(pygame.mouse.get_pos())
+            if left_button.rect.collidepoint(pygame.mouse.get_pos()):
+                print("left pressed")
 
     # show frame image
     pygame.display.update()
