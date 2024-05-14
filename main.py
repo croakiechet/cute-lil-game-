@@ -101,9 +101,10 @@ while run:
             run = False
 
         if event.type == pygame.MOUSEBUTTONDOWN:
-            print(pygame.mouse.get_pos())
-            if left_button.rect.collidepoint(pygame.mouse.get_pos()):
-                print("left pressed")
+            mouse_pos = pygame.mouse.get_pos()
+            if left_button.rect.collidepoint(mouse_pos):
+                print("left button hit")
+
 
     # show frame image
     pygame.display.update()
