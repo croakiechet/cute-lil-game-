@@ -31,7 +31,7 @@ def center(size_screen, w, h):
 
 # Headsheet Cats
 ChoseCharacter = False
-head_sheet = headsheet.HeadSheet()
+head_sheet = headsheet.HeadSheet(screen_size)
 
 black_1 = head_sheet.get_image(0, 256, 256, 0.25)
 black_2 = head_sheet.get_image(1, 256, 256, 0.25)
@@ -67,8 +67,19 @@ white_3 = head_sheet.get_image(23, 256, 256, 0.25)
 
 # Choose Your Character
 
+
 # Choose Cats
-choose_cat_list = [black_1, blacktabby_1, calico_1, grey_1, greytabby_1, orange_1, orangetabby_1, white_1]
+choose_cat_list = [black_1,
+                   blacktabby_1,
+                   calico_1,
+                   grey_1,
+                   greytabby_1,
+                   orange_1,
+                   orangetabby_1,
+                   white_1,]
+cat_choose = 0
+cat_chose_shown = orangetabby_1
+cat_chose_shown_pos = (cat_chose_shown.set_position()[0], cat_chose_shown.set_position()[1] + 50)
 
 # Cat Frame
 catframe = CatFrame(0.75, screen_size)
@@ -81,8 +92,8 @@ cyc_pos = (cyc.set_position()[0], cyc.set_position()[1] - 218)
 # Buttons
 left_button = Button('sprites/Left.png', 0.65, screen_size)
 right_button = Button('sprites/Right.png', 0.65, screen_size)
-left_button_pos = (left_button.set_position()[0] - 300, left_button.set_position()[1] + 40)
-right_button_pos = (right_button.set_position()[0] + 300, right_button.set_position()[1] + 40)
+left_button.rect.topleft = (left_button.set_position()[0] - 300, left_button.set_position()[1] + 40)
+right_button.rect.topleft = (right_button.set_position()[0] + 300, right_button.set_position()[1] + 40)
 
 # Game Loop
 run = True
@@ -92,9 +103,9 @@ while run:
 
     if ChoseCharacter is False:
         screen.blit(catframe.image, catframe_pos)
-
-    screen.blit(left_button.image, left_button_pos)
-    screen.blit(right_button.image, right_button_pos)
+        screen.blit(cat_chose_shown, catframe_pos)
+    screen.blit(left_button.image, left_button.rect)
+    screen.blit(right_button.image, right_button.rect)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -103,7 +114,15 @@ while run:
         if event.type == pygame.MOUSEBUTTONDOWN:
             mouse_pos = pygame.mouse.get_pos()
             if left_button.rect.collidepoint(mouse_pos):
-                print("left button hit")
+                print("left")
+                cat_choose = 1
+                for i in range(len(choose_cat_list)):
+                    cat_chose_shown = choose_cat_list[i]
+
+
+            if right_button.rect.collidepoint(mouse_pos):
+                print("right button hit")
+
 
 
     # show frame image
