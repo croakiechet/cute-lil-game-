@@ -10,7 +10,6 @@ class Button:
         self.image_size = self.image.get_size()
         self.rect = self.image.get_rect()
         self.screen_size = screensize
-        self.mask = pygame.mask.from_surface(self.image)
 
     def set_position(self):
         button_width, button_height = self.rect.size

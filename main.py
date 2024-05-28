@@ -2,14 +2,14 @@ import pygame
 from catframe import CatFrame
 from button import Button
 from textmake import TextMake
-import headsheet
+from spritesheet import SpriteSheet
 
 # Initialize pygame
 pygame.init()
 pygame.font.init()
 
 # Create the Screen
-screen_size = (800, 600)
+screen_size = (900, 650)
 screen = pygame.display.set_mode(screen_size)
 
 # Pygame Caption and Icon
@@ -29,84 +29,41 @@ def center(size_screen, w, h):
     y_centered = (size_screen[1]) / 2 - h / 2
     return x_centered, y_centered
 
+
 # Headsheet Cats
-ChoseCharacter = False
-head_sheet = headsheet.HeadSheet(screen_size)
-
-black_1 = head_sheet.get_image(0, 256, 256, 0.25)
-black_2 = head_sheet.get_image(1, 256, 256, 0.25)
-black_3 = head_sheet.get_image(2, 256, 256, 0.25)
-
-blacktabby_1 = head_sheet.get_image(3, 256, 256, 0.25)
-blacktabby_2 = head_sheet.get_image(4, 256, 256, 0.25)
-blacktabby_3 = head_sheet.get_image(5, 256, 256, 0.25)
-
-calico_1 = head_sheet.get_image(6, 256, 256, 0.25)
-calico_2 = head_sheet.get_image(7, 256, 256, 0.25)
-calico_3 = head_sheet.get_image(8, 256, 256, 0.25)
-
-grey_1 = head_sheet.get_image(9, 256, 256, 0.25)
-grey_2 = head_sheet.get_image(10, 256, 256, 0.25)
-grey_3 = head_sheet.get_image(11, 256, 256, 0.25)
-
-greytabby_1 = head_sheet.get_image(12, 256, 256, 0.25)
-greytabby_2 = head_sheet.get_image(13, 256, 256, 0.25)
-greytabby_3 = head_sheet.get_image(14, 256, 256, 0.25)
-
-orange_1 = head_sheet.get_image(15, 256, 256, 0.25)
-orange_2 = head_sheet.get_image(16, 256, 256, 0.25)
-orange_3 = head_sheet.get_image(17, 256, 256, 0.25)
-
-orangetabby_1 = head_sheet.get_image(18, 256, 256, 0.25)
-orangetabby_2 = head_sheet.get_image(19, 256, 256, 0.25)
-orangetabby_3 = head_sheet.get_image(20, 256, 256, 0.25)
-
-white_1 = head_sheet.get_image(21, 256, 256, 0.25)
-white_2 = head_sheet.get_image(22, 256, 256, 0.25)
-white_3 = head_sheet.get_image(23, 256, 256, 0.25)
-
-# Choose Your Character
-
-
-# Choose Cats
-choose_cat_list = [black_1,
-                   blacktabby_1,
-                   calico_1,
-                   grey_1,
-                   greytabby_1,
-                   orange_1,
-                   orangetabby_1,
-                   white_1,]
-cat_choose = 0
-cat_chose_shown = orangetabby_1
-cat_chose_shown_pos = (cat_chose_shown.set_position()[0], cat_chose_shown.set_position()[1] + 50)
+head_sheet = SpriteSheet(screen_size, 'sprites/headsheet.png')
 
 # Cat Frame
-catframe = CatFrame(0.75, screen_size)
-catframe_pos = (catframe.set_position()[0], catframe.set_position()[1] + 50)
+catframe = CatFrame(0.90, screen_size)
+catframe_pos = (catframe.set_position()[0], catframe.set_position()[1] + 30)
 
 # Title
 cyc = TextMake(main_font, "choose your character", (54, 44, 35), screen_size)
-cyc_pos = (cyc.set_position()[0], cyc.set_position()[1] - 218)
+cyc_pos = (cyc.set_position()[0], cyc.set_position()[1] - 265)
 
 # Buttons
-left_button = Button('sprites/Left.png', 0.65, screen_size)
-right_button = Button('sprites/Right.png', 0.65, screen_size)
-left_button.rect.topleft = (left_button.set_position()[0] - 300, left_button.set_position()[1] + 40)
-right_button.rect.topleft = (right_button.set_position()[0] + 300, right_button.set_position()[1] + 40)
+left_button = Button('sprites/Left.png', 0.80, screen_size)
+right_button = Button('sprites/Right.png', 0.80, screen_size)
+left_button.rect.topleft = (left_button.set_position()[0] - 330, left_button.set_position()[1] + 25)
+right_button.rect.topleft = (right_button.set_position()[0] + 330, right_button.set_position()[1] + 25)
+done_button = Button('sprites/Done.png', 0.55, screen_size)
+done_button.rect.topleft = (done_button.set_position()[0] + 340, done_button.set_position()[1] + 245)
+
+my_spritesheet = SpriteSheet(screen_size,'sprites/spritesheet.png')
+player1 = my_spritesheet.get_sprite(320, 120, 40, 40)
+
+
+# Choose Your Character Scene
+cat_choose = 0
+CYCScene = True
+
+# Bedroom Scene
+Bedroom = False
 
 # Game Loop
 run = True
 while run:
-    screen.fill((255, 255, 255))
-    screen.blit(cyc.text_sprite, cyc_pos)
-
-    if ChoseCharacter is False:
-        screen.blit(catframe.image, catframe_pos)
-        screen.blit(cat_chose_shown, catframe_pos)
-    screen.blit(left_button.image, left_button.rect)
-    screen.blit(right_button.image, right_button.rect)
-
+    current_time = pygame.time.get_ticks()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
@@ -115,15 +72,27 @@ while run:
             mouse_pos = pygame.mouse.get_pos()
             if left_button.rect.collidepoint(mouse_pos):
                 print("left")
-                cat_choose = 1
-                for i in range(len(choose_cat_list)):
-                    cat_chose_shown = choose_cat_list[i]
-
+                cat_choose -= 3
+                cat_choose = cat_choose % 24
 
             if right_button.rect.collidepoint(mouse_pos):
                 print("right button hit")
+                cat_choose += 3
+                cat_choose = cat_choose % 24
 
+            if done_button.rect.collidepoint(mouse_pos):
+                print("done")
+                CYCScene = False
+                Bedroom = True
 
+    screen.fill((255, 255, 255))
+    if CYCScene:
+        screen.blit(cyc.text_sprite, cyc_pos)
+        screen.blit(catframe.image, catframe_pos)
+        screen.blit(head_sheet.get_image(cat_choose, 256, 256, 1.80), catframe_pos)
+        screen.blit(left_button.image, left_button.rect)
+        screen.blit(right_button.image, right_button.rect)
+        screen.blit(done_button.image, done_button.rect)
 
     # show frame image
     pygame.display.update()
