@@ -2,7 +2,7 @@ import pygame
 
 
 class Objects:
-    def __init__(self, scale, image):
+    def __init__(self, image, scale):
         self.image = pygame.image.load(image).convert_alpha()
         self.image = pygame.transform.scale(self.image, (self.image.get_width() * scale, self.image.get_height() * scale))
         self.image_size = self.image.get_size()

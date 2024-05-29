@@ -31,7 +31,7 @@ def center(size_screen, w, h):
 
 
 # Cat Frame
-catframe = Objects(0.9, 'sprites/catframe.png')
+catframe = Objects('sprites/frame.png', 0.9)
 catframe_pos = (catframe.set_position()[0], catframe.set_position()[1] + 30)
 
 # Title
@@ -39,11 +39,11 @@ cyc = TextMake(main_font, "choose your character", (54, 44, 35), screen_size)
 cyc_pos = (cyc.set_position()[0], cyc.set_position()[1] - 265)
 
 # Buttons
-left_button = Objects(0.8, 'sprites/Left.png')
-right_button = Objects(0.8, 'sprites/Right.png')
+left_button = Objects('sprites/Left.png', 0.8)
+right_button = Objects('sprites/Right.png', 0.8)
 left_button.rect.topleft = (left_button.set_position()[0] - 330, left_button.set_position()[1] + 25)
 right_button.rect.topleft = (right_button.set_position()[0] + 330, right_button.set_position()[1] + 25)
-done_button = Button('sprites/Done.png', 0.55, screen_size)
+done_button = Objects('sprites/Done.png', 0.55)
 done_button.rect.topleft = (done_button.set_position()[0] + 340, done_button.set_position()[1] + 245)
 
 # Choose Your Character Scene
