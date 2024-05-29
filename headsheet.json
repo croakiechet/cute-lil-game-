@@ -1,495 +1,495 @@
 {
-	"frames": {
-		"Black 1.png": {
-			"frame": {
-				"x": 0,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"rotated": false,
-			"trimmed": false,
-			"spriteSourceSize": {
-				"x": 0,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"sourceSize": {
-				"w": 256,
-				"h": 256
-			}
-		},
-		"Black 2.png": {
-			"frame": {
-				"x": 256,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"rotated": false,
-			"trimmed": false,
-			"spriteSourceSize": {
-				"x": 0,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"sourceSize": {
-				"w": 256,
-				"h": 256
-			}
-		},
-		"Black 3.png": {
-			"frame": {
-				"x": 512,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"rotated": false,
-			"trimmed": false,
-			"spriteSourceSize": {
-				"x": 0,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"sourceSize": {
-				"w": 256,
-				"h": 256
-			}
-		},
-		"Black Bicolor 1.png": {
-			"frame": {
-				"x": 768,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"rotated": false,
-			"trimmed": false,
-			"spriteSourceSize": {
-				"x": 0,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"sourceSize": {
-				"w": 256,
-				"h": 256
-			}
-		},
-		"Black Bicolor 2.png": {
-			"frame": {
-				"x": 1024,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"rotated": false,
-			"trimmed": false,
-			"spriteSourceSize": {
-				"x": 0,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"sourceSize": {
-				"w": 256,
-				"h": 256
-			}
-		},
-		"Black Bicolor 3.png": {
-			"frame": {
-				"x": 1280,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"rotated": false,
-			"trimmed": false,
-			"spriteSourceSize": {
-				"x": 0,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"sourceSize": {
-				"w": 256,
-				"h": 256
-			}
-		},
-		"Calico 1.png": {
-			"frame": {
-				"x": 1536,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"rotated": false,
-			"trimmed": false,
-			"spriteSourceSize": {
-				"x": 0,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"sourceSize": {
-				"w": 256,
-				"h": 256
-			}
-		},
-		"Calico 2.png": {
-			"frame": {
-				"x": 1792,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"rotated": false,
-			"trimmed": false,
-			"spriteSourceSize": {
-				"x": 0,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"sourceSize": {
-				"w": 256,
-				"h": 256
-			}
-		},
-		"Calico 3.png": {
-			"frame": {
-				"x": 2048,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"rotated": false,
-			"trimmed": false,
-			"spriteSourceSize": {
-				"x": 0,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"sourceSize": {
-				"w": 256,
-				"h": 256
-			}
-		},
-		"Gray 1.png": {
-			"frame": {
-				"x": 2304,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"rotated": false,
-			"trimmed": false,
-			"spriteSourceSize": {
-				"x": 0,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"sourceSize": {
-				"w": 256,
-				"h": 256
-			}
-		},
-		"Gray 2.png": {
-			"frame": {
-				"x": 2560,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"rotated": false,
-			"trimmed": false,
-			"spriteSourceSize": {
-				"x": 0,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"sourceSize": {
-				"w": 256,
-				"h": 256
-			}
-		},
-		"Gray 3.png": {
-			"frame": {
-				"x": 2816,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"rotated": false,
-			"trimmed": false,
-			"spriteSourceSize": {
-				"x": 0,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"sourceSize": {
-				"w": 256,
-				"h": 256
-			}
-		},
-		"Gray Bicolor 1.png": {
-			"frame": {
-				"x": 3072,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"rotated": false,
-			"trimmed": false,
-			"spriteSourceSize": {
-				"x": 0,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"sourceSize": {
-				"w": 256,
-				"h": 256
-			}
-		},
-		"Gray Bicolor 2.png": {
-			"frame": {
-				"x": 3328,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"rotated": false,
-			"trimmed": false,
-			"spriteSourceSize": {
-				"x": 0,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"sourceSize": {
-				"w": 256,
-				"h": 256
-			}
-		},
-		"Gray Bicolor 3.png": {
-			"frame": {
-				"x": 3584,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"rotated": false,
-			"trimmed": false,
-			"spriteSourceSize": {
-				"x": 0,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"sourceSize": {
-				"w": 256,
-				"h": 256
-			}
-		},
-		"Orange 1.png": {
-			"frame": {
-				"x": 3840,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"rotated": false,
-			"trimmed": false,
-			"spriteSourceSize": {
-				"x": 0,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"sourceSize": {
-				"w": 256,
-				"h": 256
-			}
-		},
-		"Orange 2.png": {
-			"frame": {
-				"x": 4096,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"rotated": false,
-			"trimmed": false,
-			"spriteSourceSize": {
-				"x": 0,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"sourceSize": {
-				"w": 256,
-				"h": 256
-			}
-		},
-		"Orange 3.png": {
-			"frame": {
-				"x": 4352,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"rotated": false,
-			"trimmed": false,
-			"spriteSourceSize": {
-				"x": 0,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"sourceSize": {
-				"w": 256,
-				"h": 256
-			}
-		},
-		"Orange Tabby 1.png": {
-			"frame": {
-				"x": 4608,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"rotated": false,
-			"trimmed": false,
-			"spriteSourceSize": {
-				"x": 0,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"sourceSize": {
-				"w": 256,
-				"h": 256
-			}
-		},
-		"Orange Tabby 2.png": {
-			"frame": {
-				"x": 4864,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"rotated": false,
-			"trimmed": false,
-			"spriteSourceSize": {
-				"x": 0,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"sourceSize": {
-				"w": 256,
-				"h": 256
-			}
-		},
-		"Orange Tabby 3.png": {
-			"frame": {
-				"x": 5120,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"rotated": false,
-			"trimmed": false,
-			"spriteSourceSize": {
-				"x": 0,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"sourceSize": {
-				"w": 256,
-				"h": 256
-			}
-		},
-		"White 1.png": {
-			"frame": {
-				"x": 5376,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"rotated": false,
-			"trimmed": false,
-			"spriteSourceSize": {
-				"x": 0,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"sourceSize": {
-				"w": 256,
-				"h": 256
-			}
-		},
-		"White 2.png": {
-			"frame": {
-				"x": 5632,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"rotated": false,
-			"trimmed": false,
-			"spriteSourceSize": {
-				"x": 0,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"sourceSize": {
-				"w": 256,
-				"h": 256
-			}
-		},
-		"White 3.png": {
-			"frame": {
-				"x": 5888,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"rotated": false,
-			"trimmed": false,
-			"spriteSourceSize": {
-				"x": 0,
-				"y": 0,
-				"w": 256,
-				"h": 256
-			},
-			"sourceSize": {
-				"w": 256,
-				"h": 256
-			}
-		}
-	},
-	"meta": {
-		"app": "http://www.codeandweb.com/texturepacker",
-		"version": "1.0",
-		"image": "spritesheet.png",
-		"format": "RGBA8888",
-		"size": {
-			"w": 6144,
-			"h": 256
-		},
-		"scale": "1"
-	}
+  "frames": {
+    "Black 1.png": {
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      }
+    },
+    "Black 2.png": {
+      "frame": {
+        "x": 256,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      }
+    },
+    "Black 3.png": {
+      "frame": {
+        "x": 512,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      }
+    },
+    "Black Bicolor 1.png": {
+      "frame": {
+        "x": 768,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      }
+    },
+    "Black Bicolor 2.png": {
+      "frame": {
+        "x": 1024,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      }
+    },
+    "Black Bicolor 3.png": {
+      "frame": {
+        "x": 1280,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      }
+    },
+    "Calico 1.png": {
+      "frame": {
+        "x": 1536,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      }
+    },
+    "Calico 2.png": {
+      "frame": {
+        "x": 1792,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      }
+    },
+    "Calico 3.png": {
+      "frame": {
+        "x": 2048,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      }
+    },
+    "Gray 1.png": {
+      "frame": {
+        "x": 2304,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      }
+    },
+    "Gray 2.png": {
+      "frame": {
+        "x": 2560,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      }
+    },
+    "Gray 3.png": {
+      "frame": {
+        "x": 2816,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      }
+    },
+    "Gray Bicolor 1.png": {
+      "frame": {
+        "x": 3072,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      }
+    },
+    "Gray Bicolor 2.png": {
+      "frame": {
+        "x": 3328,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      }
+    },
+    "Gray Bicolor 3.png": {
+      "frame": {
+        "x": 3584,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      }
+    },
+    "Orange 1.png": {
+      "frame": {
+        "x": 3840,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      }
+    },
+    "Orange 2.png": {
+      "frame": {
+        "x": 4096,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      }
+    },
+    "Orange 3.png": {
+      "frame": {
+        "x": 4352,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      }
+    },
+    "Orange Tabby 1.png": {
+      "frame": {
+        "x": 4608,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      }
+    },
+    "Orange Tabby 2.png": {
+      "frame": {
+        "x": 4864,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      }
+    },
+    "Orange Tabby 3.png": {
+      "frame": {
+        "x": 5120,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      }
+    },
+    "White 1.png": {
+      "frame": {
+        "x": 5376,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      }
+    },
+    "White 2.png": {
+      "frame": {
+        "x": 5632,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      }
+    },
+    "White 3.png": {
+      "frame": {
+        "x": 5888,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      }
+    }
+  },
+  "meta": {
+    "app": "http://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "spritesheet.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 6144,
+      "h": 256
+    },
+    "scale": "1"
+  }
 }

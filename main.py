@@ -1,8 +1,10 @@
 import pygame
-from catframe import CatFrame
 from button import Button
 from textmake import TextMake
-from spritesheet import SpriteSheet
+from headsheet import HeadSheet
+from player import Player
+from objects import Objects
+
 
 # Initialize pygame
 pygame.init()
@@ -11,12 +13,10 @@ pygame.font.init()
 # Create the Screen
 screen_size = (900, 650)
 screen = pygame.display.set_mode(screen_size)
-
 # Pygame Caption and Icon
 icon = pygame.image.load('sprites/icon.png')
 pygame.display.set_icon(icon)
 pygame.display.set_caption('cute lil game')
-
 # Fonts
 dumb_font = pygame.font.Font('fonts/dumbcat.ttf', 50)
 main_font = pygame.font.Font('fonts/main.ttf', 60)
@@ -30,11 +30,8 @@ def center(size_screen, w, h):
     return x_centered, y_centered
 
 
-# Headsheet Cats
-head_sheet = SpriteSheet(screen_size, 'sprites/headsheet.png')
-
 # Cat Frame
-catframe = CatFrame(0.90, screen_size)
+catframe = Objects(0.9, 'sprites/catframe.png')
 catframe_pos = (catframe.set_position()[0], catframe.set_position()[1] + 30)
 
 # Title
@@ -42,23 +39,23 @@ cyc = TextMake(main_font, "choose your character", (54, 44, 35), screen_size)
 cyc_pos = (cyc.set_position()[0], cyc.set_position()[1] - 265)
 
 # Buttons
-left_button = Button('sprites/Left.png', 0.80, screen_size)
-right_button = Button('sprites/Right.png', 0.80, screen_size)
+left_button = Objects(0.8, 'sprites/Left.png')
+right_button = Objects(0.8, 'sprites/Right.png')
 left_button.rect.topleft = (left_button.set_position()[0] - 330, left_button.set_position()[1] + 25)
 right_button.rect.topleft = (right_button.set_position()[0] + 330, right_button.set_position()[1] + 25)
 done_button = Button('sprites/Done.png', 0.55, screen_size)
 done_button.rect.topleft = (done_button.set_position()[0] + 340, done_button.set_position()[1] + 245)
 
-my_spritesheet = SpriteSheet(screen_size,'sprites/spritesheet.png')
-player1 = my_spritesheet.get_sprite(320, 120, 40, 40)
-
-
 # Choose Your Character Scene
 cat_choose = 0
 CYCScene = True
+headsheet = HeadSheet('sprites/headsheet.png', screen_size)
+cycat = headsheet.get_image(cat_choose, 256, 256, 1.8)
+cycat_pos = (center(screen_size, cycat.get_width(), cycat.get_height())[0], center(screen_size, cycat.get_width(), cycat.get_height())[1] + 20)
 
 # Bedroom Scene
 Bedroom = False
+center = center(screen_size, 40, 40)
 
 # Game Loop
 run = True
@@ -89,11 +86,10 @@ while run:
     if CYCScene:
         screen.blit(cyc.text_sprite, cyc_pos)
         screen.blit(catframe.image, catframe_pos)
-        screen.blit(head_sheet.get_image(cat_choose, 256, 256, 1.80), catframe_pos)
         screen.blit(left_button.image, left_button.rect)
         screen.blit(right_button.image, right_button.rect)
         screen.blit(done_button.image, done_button.rect)
-
+        screen.blit(headsheet.get_image(cat_choose, 256, 256, 1.8), cycat_pos)
     # show frame image
     pygame.display.update()
 
