@@ -65,30 +65,23 @@ CYCScene = True
 
 # Bedroom Scene
 Bedroom = False
-Player = Player()
+Player = Player(0, 640, 3)
 
 index = 0
 
 # Game Loop
 run = True
 while run:
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_a]:
+        player.facing_left = True
+        player.walk()
+
     clock.tick(60)
     current_time = pygame.time.get_ticks()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
-
-        if event.type == pygame.KEYDOWN:
-            if event.key in [pygame.K_a, pygame.K_LEFT]:
-                player.walk
-            elif event.key == pygame.K_RIGHT:
-                Player.RIGHT_KEY, Player.FACING_LEFT = True, False
-
-        if event.type == pygame.KEYUP:
-            if event.key == pygame.K_LEFT:
-                Player.LEFT_KEY = False
-            elif event.key == pygame.K_RIGHT:
-                Player.RIGHT_KEY = False
 
         if event.type == pygame.MOUSEBUTTONDOWN:
             mouse_pos = pygame.mouse.get_pos()

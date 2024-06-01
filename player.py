@@ -3,8 +3,9 @@ from spritesheet import Spritesheet
 
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self, x ,y, scale):
+    def __init__(self, x, y, scale):
         pygame.sprite.Sprite.__init__(self)
+        self.load_frames()
         self.x = x
         self.y = y
         self.current_image = self.idle_frames_left[0]
@@ -16,6 +17,7 @@ class Player(pygame.sprite.Sprite):
         self.scale = scale
         self.facing_left = False
         self.now = pygame.time.get_ticks()
+        self.image_size = self.current_image.get_size()
 
     def draw(self, screen):
         screen.blit(self.current_image, self.rect)
