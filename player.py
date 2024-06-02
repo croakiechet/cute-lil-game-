@@ -8,7 +8,7 @@ class Player(pygame.sprite.Sprite):
         self.x = x
         self.y = y
         self.current_frame = 0
-        self.last_updated = 0
+        self.last_updated = pygame.time.get_ticks()
         self.walk_speed = 3
         self.state = 'idle'
         self.scale = scale
@@ -18,7 +18,10 @@ class Player(pygame.sprite.Sprite):
         self.current_image = self.idle_frames_left[0]
         self.rect = self.current_image.get_rect()
         self.image_size = self.current_image.get_size()
-
+        self.time_of_last_jump = 0
+        self.time_of_jump_deactivate = 0
+        self.time_since_last_jump = 0
+        self.time_since_jump_activated = 0
 
     def draw(self, screen):
         screen.blit(self.current_image, self.rect)
@@ -27,42 +30,26 @@ class Player(pygame.sprite.Sprite):
         self.now = pygame.time.get_ticks()
         match self.state:
             case 'idling':
-                self.idle()
+                self.action('idle', 150)
             case 'walking':
-                self.walk()
+                self.action('walk', 90)
             case 'jumping':
-                pass
+                self.action('jump', 150)
             case 'landing':
-                pass
+                self.action('land', 150)
             case 'sneaking':
-                pass
+                self.action('sneak', 150)
 
-    def idle(self):
-        if self.now - self.last_updated > 150:
+    def action(self, action: str, time_between_frames: int):
+        if self.now - self.last_updated > time_between_frames:
             self.last_updated = self.now
-            self.current_frame = (self.current_frame + 1) % len(self.idle_frames_left)
+            facing = "left" if self.facing_left else "right"
+            action_frames = getattr(self, f'{action}_frames_{facing}')
+            self.current_frame = (self.current_frame + 1) % len(action_frames)
             if self.facing_left:
-                self.current_image = self.idle_frames_left[self.current_frame]
+                self.current_image = action_frames[self.current_frame]
             else:
-                self.current_image = self.idle_frames_right[self.current_frame]
-
-    def walk(self):
-        if self.now - self.last_updated > 90:
-            self.last_updated = self.now
-            self.current_frame = (self.current_frame + 1) % len(self.walk_frames_left)
-            if self.facing_left:
-                self.current_image = self.walk_frames_left[self.current_frame]
-            else:
-                self.current_image = self.walk_frames_right[self.current_frame]
-
-    def idle(self):
-        if self.now - self.last_updated > 150:
-            self.last_updated = self.now
-            self.current_frame = (self.current_frame + 1) % len(self.idle_frames_left)
-            if self.facing_left:
-                self.current_image = self.idle_frames_left[self.current_frame]
-            else:
-                self.current_image = self.idle_frames_right[self.current_frame]
+                self.current_image = action_frames[self.current_frame]
 
     def load_frames(self):
         my_spritesheet = Spritesheet('sprites/spritesheet.png')
@@ -110,9 +97,3 @@ class Player(pygame.sprite.Sprite):
         self.sneak_frames_left = []
         for frame in self.sneak_frames_right:
             self.sneak_frames_left.append(pygame.transform.flip(frame, False, True))
-
-
-
-
-
-

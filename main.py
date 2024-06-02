@@ -1,6 +1,5 @@
 import pygame
 
-import player
 from textmake import TextMake
 from player import Player
 from objects import Objects
@@ -79,17 +78,44 @@ while run:
             run = False
 
         if event.type == pygame.KEYDOWN:
-            if event.key in [pygame.K_a, pygame.K_LEFT]:
-                Player.facing_left = True
-                Player.walk()
-            elif event.key == pygame.K_RIGHT:
-                Player.RIGHT_KEY, Player.FACING_LEFT = True, False
+            match event.key:
+                case pygame.K_a | pygame.K_LEFT:
+                    Player.facing_left = True
+                    Player.state = 'walking'
+                case pygame.K_d | pygame.K_RIGHT:
+                    Player.facing_left = False
+                    Player.state = 'walking'
+                case pygame.K_w | pygame.K_UP | pygame.K_SPACE:
+                    if Player.state == 'jumping':
+                        Player.time_since_jump_activated = current_time - Player.time_since_last_jump
+                    else:
+                        Player.time_of_last_jump = current_time
+                        Player.time_since_jump_activated = 0
+                        Player.time_since_last_jump = 0
+                        Player.state = 'jumping'
+                case pygame.K_s | pygame.K_DOWN | pygame.K_LSHIFT:
+                    Player.state = 'sneaking'
 
         if event.type == pygame.KEYUP:
-            if event.key == pygame.K_LEFT:
-                Player.LEFT_KEY = False
-            elif event.key == pygame.K_RIGHT:
-                Player.RIGHT_KEY = False
+            match event.key:
+                case pygame.K_w | pygame.K_UP | pygame.K_SPACE:
+                    Player.time_of_jump_deactivate = current_time
+                    Player.state = 'landing'
+            if Player.state == 'jumping':
+                if current_time - Player.time_of_last_jump < 500:
+                    Player.state = 'jumping'
+                else:
+                    Player.time_of_last_jump = 0
+                    Player.time_of_jump_deactivate = current_time
+                    Player.state = 'landing'
+            elif Player.state == 'landing':
+                if 1 < Player.time_since_last_jump < 300:
+                    Player.time_since_last_jump = current_time - Player.time_of_jump_deactivate
+                    Player.state = 'landing'
+                else:
+                    Player.state = 'idling'
+            else:
+                Player.state = 'idling'
 
         if event.type == pygame.MOUSEBUTTONDOWN:
             mouse_pos = pygame.mouse.get_pos()
@@ -107,7 +133,7 @@ while run:
                 print("done")
                 CYCScene = False
                 Bedroom = True
-    Player.update()
+
     screen.fill((255, 255, 255))
     if CYCScene:
         screen.blit(cyc.text_sprite, cyc_pos)
@@ -119,6 +145,14 @@ while run:
 
     if Bedroom:
         Player.draw(screen)
+
+    if Player.state == 'landing':
+        Player.time_since_last_jump = current_time - Player.time_of_jump_deactivate
+        if Player.time_since_last_jump < 200:
+            Player.state = 'landing'
+        else:
+            Player.state = 'idling'
+    Player.animate()
 
     # show frame image
     pygame.display.update()
