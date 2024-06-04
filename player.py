@@ -9,7 +9,7 @@ class Player(pygame.sprite.Sprite):
         self.y = y
         self.current_frame = 0
         self.last_updated = pygame.time.get_ticks()
-        self.walk_speed = 3
+        self.walk_speed = 10
         self.state = 'idle'
         self.scale = scale
         self.facing_left = False
@@ -23,8 +23,16 @@ class Player(pygame.sprite.Sprite):
         self.time_since_last_jump = 0
         self.time_since_jump_activated = 0
 
+    def move(self):
+        if self.state == 'walking':
+            if self.facing_left:
+                self.x -= self.walk_speed
+            if not self.facing_left:
+                self.x += self.walk_speed
+
     def draw(self, screen):
-        screen.blit(self.current_image, self.rect)
+        # move character, then blit
+        screen.blit(self.current_image, (self.x, self.y))
 
     def animate(self):
         self.now = pygame.time.get_ticks()
@@ -43,13 +51,14 @@ class Player(pygame.sprite.Sprite):
     def action(self, action: str, time_between_frames: int):
         if self.now - self.last_updated > time_between_frames:
             self.last_updated = self.now
-            facing = "left" if self.facing_left else "right"
-            action_frames = getattr(self, f'{action}_frames_{facing}')
-            self.current_frame = (self.current_frame + 1) % len(action_frames)
             if self.facing_left:
-                self.current_image = action_frames[self.current_frame]
+                facing = "left"
             else:
-                self.current_image = action_frames[self.current_frame]
+                facing = "right"
+
+            action_frames = getattr(self, f'{action}_frames_{facing}') # getting self.(WHATEVER FRAMES I WANT)
+            self.current_frame = (self.current_frame + 1) % len(action_frames)
+            self.current_image = action_frames[self.current_frame]
 
     def load_frames(self):
         my_spritesheet = Spritesheet('sprites/spritesheet.png')

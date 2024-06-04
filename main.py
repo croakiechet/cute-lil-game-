@@ -1,5 +1,4 @@
 import pygame
-
 from textmake import TextMake
 from player import Player
 from objects import Objects
@@ -64,7 +63,7 @@ CYCScene = True
 
 # Bedroom Scene
 Bedroom = False
-Player = Player(0, 600, 4)
+Player = Player(0, 0, 4)
 
 index = 0
 
@@ -82,9 +81,12 @@ while run:
                 case pygame.K_a | pygame.K_LEFT:
                     Player.facing_left = True
                     Player.state = 'walking'
+                    Player.move()
+
                 case pygame.K_d | pygame.K_RIGHT:
                     Player.facing_left = False
                     Player.state = 'walking'
+                    Player.move()
                 case pygame.K_w | pygame.K_UP | pygame.K_SPACE:
                     if Player.state == 'jumping':
                         Player.time_since_jump_activated = current_time - Player.time_since_last_jump
