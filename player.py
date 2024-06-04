@@ -9,7 +9,7 @@ class Player(pygame.sprite.Sprite):
         self.y = y
         self.current_frame = 0
         self.last_updated = pygame.time.get_ticks()
-        self.walk_speed = 10
+        self.walk_speed = 3
         self.state = 'idle'
         self.scale = scale
         self.facing_left = False

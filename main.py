@@ -76,61 +76,42 @@ while run:
         if event.type == pygame.QUIT:
             run = False
 
-        if event.type == pygame.KEYDOWN:
-            match event.key:
-                case pygame.K_a | pygame.K_LEFT:
-                    Player.facing_left = True
-                    Player.state = 'walking'
-                    Player.move()
-
-                case pygame.K_d | pygame.K_RIGHT:
-                    Player.facing_left = False
-                    Player.state = 'walking'
-                    Player.move()
-                case pygame.K_w | pygame.K_UP | pygame.K_SPACE:
-                    if Player.state == 'jumping':
-                        Player.time_since_jump_activated = current_time - Player.time_since_last_jump
-                    else:
-                        Player.time_of_last_jump = current_time
-                        Player.time_since_jump_activated = 0
-                        Player.time_since_last_jump = 0
-                        Player.state = 'jumping'
-                case pygame.K_s | pygame.K_DOWN | pygame.K_LSHIFT:
-                    Player.state = 'sneaking'
-
-        if event.type == pygame.KEYUP:
-            match event.key:
-                case pygame.K_w | pygame.K_UP | pygame.K_SPACE:
-                    Player.time_of_jump_deactivate = current_time
-                    Player.state = 'landing'
+        # Key events
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_a] or keys[pygame.K_LEFT]:
+            Player.facing_left = True
+            Player.state = 'walking'
+            Player.move()
+        elif keys[pygame.K_d] or keys[pygame.K_RIGHT]:
+            Player.facing_left = False
+            Player.state = 'walking'
+            Player.move()
+        elif keys[pygame.K_w] or keys[pygame.K_UP] or keys[pygame.K_SPACE]:
+            # Handle jumping
             if Player.state == 'jumping':
-                if current_time - Player.time_of_last_jump < 500:
-                    Player.state = 'jumping'
-                else:
-                    Player.time_of_last_jump = 0
-                    Player.time_of_jump_deactivate = current_time
-                    Player.state = 'landing'
-            elif Player.state == 'landing':
-                if 1 < Player.time_since_last_jump < 300:
-                    Player.time_since_last_jump = current_time - Player.time_of_jump_deactivate
-                    Player.state = 'landing'
-                else:
-                    Player.state = 'idling'
+                Player.time_since_jump_activated = current_time - Player.time_since_last_jump
             else:
-                Player.state = 'idling'
+                Player.time_of_last_jump = current_time
+                Player.time_since_jump_activated = 0
+                Player.time_since_last_jump = 0
+                Player.state = 'jumping'
+        elif keys[pygame.K_s] or keys[pygame.K_DOWN] or keys[pygame.K_LSHIFT]:
+            Player.state = 'sneaking'
+        else:
+            # Stop movement if no keys are pressed
+            Player.state = 'idling'
 
+        # Mouse events
         if event.type == pygame.MOUSEBUTTONDOWN:
             mouse_pos = pygame.mouse.get_pos()
             if left_button.rect.collidepoint(mouse_pos):
                 print("left")
                 cat_choose -= 3
                 cat_choose = cat_choose % 24
-
             if right_button.rect.collidepoint(mouse_pos):
                 print("right button hit")
                 cat_choose += 3
                 cat_choose = cat_choose % 24
-
             if done_button.rect.collidepoint(mouse_pos):
                 print("done")
                 CYCScene = False
