@@ -63,8 +63,7 @@ CYCScene = True
 
 # Bedroom Scene
 Bedroom = False
-Player = Player(0, 0, 4)
-
+Player = Player(0, 9)
 index = 0
 
 # Game Loop
@@ -72,48 +71,51 @@ run = True
 while run:
     clock.tick(60)
     current_time = pygame.time.get_ticks()
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            run = False
+    blink_time = pygame.time.get_ticks()
+    keys = pygame.key.get_pressed()
+    mouse = pygame.mouse.get_pressed()
 
-        # Key events
-        keys = pygame.key.get_pressed()
-        if keys[pygame.K_a] or keys[pygame.K_LEFT]:
+    if keys[pygame.K_a] or keys[pygame.K_d]:
+        if keys[pygame.K_a]:
             Player.facing_left = True
             Player.state = 'walking'
             Player.move()
-        elif keys[pygame.K_d] or keys[pygame.K_RIGHT]:
+        elif keys[pygame.K_d]:
             Player.facing_left = False
             Player.state = 'walking'
             Player.move()
-        elif keys[pygame.K_w] or keys[pygame.K_UP] or keys[pygame.K_SPACE]:
-            # Handle jumping
-            if Player.state == 'jumping':
-                Player.time_since_jump_activated = current_time - Player.time_since_last_jump
-            else:
-                Player.time_of_last_jump = current_time
-                Player.time_since_jump_activated = 0
-                Player.time_since_last_jump = 0
-                Player.state = 'jumping'
-        elif keys[pygame.K_s] or keys[pygame.K_DOWN] or keys[pygame.K_LSHIFT]:
-            Player.state = 'sneaking'
+    elif keys[pygame.K_SPACE]:
+        # Handle jumping
+        if Player.state == 'jumping':
+            Player.time_since_jump_activated = current_time - Player.time_since_last_jump
         else:
-            # Stop movement if no keys are pressed
-            Player.state = 'idling'
+            Player.time_of_last_jump = current_time
+            Player.time_since_jump_activated = 0
+            Player.time_since_last_jump = 0
+            Player.state = 'jumping'
+    elif keys[pygame.K_LSHIFT]:
+        Player.state = 'sneaking'
+        Player.move()
+    else:
+        Player.state = 'idling'
+        Player.move()
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            run = False
+        # Key events
 
         # Mouse events
         if event.type == pygame.MOUSEBUTTONDOWN:
             mouse_pos = pygame.mouse.get_pos()
+            arrow_key = pygame.key.get_pressed()
             if left_button.rect.collidepoint(mouse_pos):
-                print("left")
                 cat_choose -= 3
                 cat_choose = cat_choose % 24
             if right_button.rect.collidepoint(mouse_pos):
-                print("right button hit")
                 cat_choose += 3
                 cat_choose = cat_choose % 24
             if done_button.rect.collidepoint(mouse_pos):
-                print("done")
                 CYCScene = False
                 Bedroom = True
 
